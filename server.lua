@@ -4,7 +4,7 @@ local ox_inventory = exports.ox_inventory
 
 RegisterServerEvent('RRGolf:checkMembership')
 AddEventHandler('RRGolf:checkMembership', function()
-    if Config.Inventory = "ox" then
+    if Config.Inventory == "ox" then
 	    local GMembership = ox_inventory:GetItemCount(source, 'lscm')
     
 	    if GMembership > 0 then
@@ -25,7 +25,7 @@ end)
 
 RegisterServerEvent('RRGolf:MembersCheck')
 AddEventHandler('RRGolf:MembersCheck', function()
-    if Config.Inventory = "ox" then
+    if Config.Inventory == "ox" then
         local GMembership = ox_inventory:GetItemCount(source, 'lscm')
         
         if GMembership > 0 then
@@ -46,7 +46,7 @@ end)
 
 RegisterServerEvent('RRGolf:buyMembership')
 AddEventHandler('RRGolf:buyMembership', function()  
-    if Config.Inventory = "ox" then    
+    if Config.Inventory == "ox" then    
         local money = ox_inventory:GetItemCount(source, 'money')
         if money >= Config.MemberPrice then
             if ox_inventory:CanCarryItem(source, 'lscm', 1) then
@@ -80,7 +80,7 @@ AddEventHandler('RRGolf:buyMembership', function()
                 description = 'You\'re not carrying enough money' 
             })
         end
-    elseif Config.Inventory = "qb" then
+    elseif Config.Inventory == "qb" then
         local Player = QBCore.Functions.GetPlayer(source)
         if not Player then return end
         local money = Player.Functions.GetMoney('cash')
