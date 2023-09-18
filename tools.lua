@@ -1099,7 +1099,7 @@ if Config.Target == "ox_target" then
 
 elseif Config.Target == "qb-target" then
 	-- QB-Target --
-	exports[Config.ThirdEyeName]:AddBoxZone("Golfing", Config.GolfStartLoc, 0.45, 0.35,{
+	exports[Config.Target]:AddBoxZone("Golfing", Config.GolfStartLoc, 0.45, 0.35,{
 		name="Golfing",
 		heading=11.0,
 		debugPoly=true,
