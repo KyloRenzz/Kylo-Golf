@@ -192,6 +192,38 @@ function newGame()
 			Citizen.Wait(100)
 
 			-- if ball is in current hole then we set up the next hole or endGame if current is 9
+      if isBallInHole then
+				if golfHole == 9 then
+					Citizen.Trace("Game is finish ball in last hole ! -> End game".."\n")
+					endGame()
+          nogolfmap()
+
+          lib.notify({
+            title = 'Los Santos Golf Club',
+            description = 'You have completed the round of Golf',
+            type = 'Success'
+          })
+
+          if DoesEntityExist(spawned_car) then
+            DeleteEntity(spawned_car)
+            spawned_car = nil
+          end 
+
+				else
+					golfHole = golfHole + 1
+					blipsStartEndCurrentHole()
+					createBall(holes[golfHole]["x"],holes[golfHole]["y"],holes[golfHole]["z"])
+					isBallInHole = false
+				end
+			else
+				-- Continu to play actual hole
+				if isPlaying then
+					idleShot()
+				else
+					lookingForBall()
+				end
+			end
+      -- Adding Golfing Map
       if golfHole == 1 then
         if isPlaying == true then
           SetMinimapGolfCourse(1)
@@ -621,7 +653,7 @@ function startGolfHud()
 
 		if golfhole ~= 0 then
 			local distance = math.ceil(GetDistanceBetweenCoords(GetEntityCoords(mygolfball), holes[golfHole]["x2"],holes[golfHole]["y2"],holes[golfHole]["z2"], true))
-      local GolfText = "___Strokes___ ___Current___ ___Hole___ :  \t".. golfstrokes .."  \n " .. "Distance between ball and hole : " .. distance .. " m" .. "  \n" .. "Current hole : " .. golfHole
+      local GolfText = "___***Strokes***___ ___***Current***___ ___***Hole***___:  \t".. golfstrokes .."  \n " .. "__Distance__ __between__ __Ball__ __and__ __Hole__ : " .. distance .. " m" .. "  \n" .. "__***Current***__ __***Hole***__ : " .. golfHole
 			local GameText = "___***GOLFING TIPS***___".."  \n ".. "__[ Y ]__ - Change Club" .."  \n ".. " __[ A / D ]__ - Rotate" .."  \n ".. "__[ E ]__ - Gain Power / Release to Shoot"
 
       if isPlaying == true then
