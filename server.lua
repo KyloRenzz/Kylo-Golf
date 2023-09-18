@@ -12,7 +12,7 @@ AddEventHandler('RRGolf:checkMembership', function()
 	    else
 		    TriggerClientEvent('RRGolf:NonMember', source) -- false
 	    end
-    elseif Config.inventory == "qb" then
+    elseif Config.Inventory == "qb" then
         local Player = QBCore.Functions.GetPlayer(source)
         local hasItem = Player.Functions.HasItem(Config.MemberCarditem)
         if hasItem == true then 
@@ -33,7 +33,7 @@ AddEventHandler('RRGolf:MembersCheck', function()
         elseif GMembership == 0 then
             TriggerClientEvent('RRGolf:noway', source)
         end
-    elseif Config.inventory == "qb" then
+    elseif Config.Inventory == "qb" then
         local Player = QBCore.Functions.GetPlayer(source)
         local hasItem = Player.Functions.HasItem(Config.MemberCarditem)
         if hasItem == true then 
