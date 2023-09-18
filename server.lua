@@ -14,8 +14,8 @@ AddEventHandler('RRGolf:checkMembership', function()
 	    end
     elseif Config.Inventory == "qb" then
         local Player = QBCore.Functions.GetPlayer(source)
-        local hasItem = Player.Functions.HasItem(Config.MemberCarditem)
-        if hasItem == true then 
+        local hasItem = Player.Functions.GetItemByName(Config.MemberCarditem)
+        if  hasItem > 0 then 
             TriggerClientEvent('RRGolf:Member', source) -- true
 	    else
 		    TriggerClientEvent('RRGolf:NonMember', source) -- false
@@ -35,10 +35,10 @@ AddEventHandler('RRGolf:MembersCheck', function()
         end
     elseif Config.Inventory == "qb" then
         local Player = QBCore.Functions.GetPlayer(source)
-        local hasItem = Player.Functions.HasItem(Config.MemberCarditem)
-        if hasItem == true then 
+        local hasItem = Player.Functions.GetItemByName(Config.MemberCarditem)
+        if hasItem > 0 then 
             TriggerClientEvent('RRGolf:membersonly', source)
-        elseif GMembership == 0 then
+        else
             TriggerClientEvent('RRGolf:noway', source)
         end
     end
