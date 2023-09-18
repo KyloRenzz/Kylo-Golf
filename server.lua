@@ -5,7 +5,7 @@ local ox_inventory = exports.ox_inventory
 RegisterServerEvent('RRGolf:checkMembership')
 AddEventHandler('RRGolf:checkMembership', function()
     if Config.Inventory == "ox" then
-	    local GMembership = ox_inventory:GetItemCount(source, 'lscm')
+	    local GMembership = ox_inventory:GetItemCount(source, Config.MemberCarditem)
     
 	    if GMembership > 0 then
 		    TriggerClientEvent('RRGolf:Member', source) -- true
@@ -14,7 +14,7 @@ AddEventHandler('RRGolf:checkMembership', function()
 	    end
     elseif Config.inventory == "qb" then
         local Player = QBCore.Functions.GetPlayer(source)
-        local hasItem = Player.Functions.HasItem('lscm')
+        local hasItem = Player.Functions.HasItem(Config.MemberCarditem)
         if hasItem == true then 
             TriggerClientEvent('RRGolf:Member', source) -- true
 	    else
@@ -26,7 +26,7 @@ end)
 RegisterServerEvent('RRGolf:MembersCheck')
 AddEventHandler('RRGolf:MembersCheck', function()
     if Config.Inventory == "ox" then
-        local GMembership = ox_inventory:GetItemCount(source, 'lscm')
+        local GMembership = ox_inventory:GetItemCount(source, Config.MemberCarditem)
         
         if GMembership > 0 then
             TriggerClientEvent('RRGolf:membersonly', source)
@@ -35,7 +35,7 @@ AddEventHandler('RRGolf:MembersCheck', function()
         end
     elseif Config.inventory == "qb" then
         local Player = QBCore.Functions.GetPlayer(source)
-        local hasItem = Player.Functions.HasItem('lscm')
+        local hasItem = Player.Functions.HasItem(Config.MemberCarditem)
         if hasItem == true then 
             TriggerClientEvent('RRGolf:membersonly', source)
         elseif GMembership == 0 then
@@ -49,10 +49,10 @@ AddEventHandler('RRGolf:buyMembership', function()
     if Config.Inventory == "ox" then    
         local money = ox_inventory:GetItemCount(source, 'money')
         if money >= Config.MemberPrice then
-            if ox_inventory:CanCarryItem(source, 'lscm', 1) then
+            if ox_inventory:CanCarryItem(source, Config.MemberCarditem, 1) then
                 -- Do stuff if can carry
                 ox_inventory:RemoveItem( 1, 'money', Config.MemberPrice)
-                ox_inventory:AddItem(source, 'lscm', 1)
+                ox_inventory:AddItem(source, Config.MemberCarditem, 1)
                 lib.notify(source, {
                     position = 'top-right', 
                     duration = 6000, 
@@ -86,7 +86,7 @@ AddEventHandler('RRGolf:buyMembership', function()
         local money = Player.Functions.GetMoney('cash')
         if Config.MemberPrice <= money then
 
-            Player.Functions.AddItem('lscm', 1)
+            Player.Functions.AddItem(Config.MemberCarditem, 1)
             Player.Functions.RemoveMoney('cash', Config.MemberPrice)
             
             lib.notify(source, {
