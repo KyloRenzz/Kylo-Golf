@@ -1102,7 +1102,7 @@ elseif Config.Target == "qb-target" then
 	exports[Config.Target]:AddBoxZone("Golfing", Config.GolfStartLoc, 0.45, 0.35,{
 		name="Golfing",
 		heading=11.0,
-		debugPoly=true,
+		debugPoly=false,
 		minZ=54.0834,
 		maxZ=54.87834,
 		}, {
@@ -1119,7 +1119,7 @@ elseif Config.Target == "qb-target" then
 	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 0.45, 0.35, {
 		name="Buying",
 		heading=11.0,
-		debugPoly=true,
+		debugPoly=false,
 		minZ=54.0834,
 		maxZ=54.87834,
 		}, {
@@ -1138,7 +1138,7 @@ elseif Config.Target == "qtarget" then
 	exports[Config.Target]:AddBoxZone("Golfing", Config.GolfStartLoc, 0.45, 0.35, {
 		name="Golfing",
 		heading=11.0,
-		debugPoly=true,
+		debugPoly=false,
 		minZ=54.0834,
 		maxZ=54.87834,
 		}, {
@@ -1155,7 +1155,7 @@ elseif Config.Target == "qtarget" then
 	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 0.45, 0.35, {
 		name="Buying",
 		heading=11.0,
-		debugPoly=true,
+		debugPoly=false,
 		minZ=54.0834,
 		maxZ=54.87834,
 		}, {
