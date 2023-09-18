@@ -187,6 +187,7 @@ function newGame()
 		createBall(holes[golfHole]["x"],holes[golfHole]["y"],holes[golfHole]["z"])
 
 		while isGameRunning == true do
+      local distance = math.ceil(GetDistanceBetweenCoords(GetEntityCoords(mygolfball), holes[golfHole]["x2"],holes[golfHole]["y2"],holes[golfHole]["z2"], true))
 			-- Refresh tick
 			Citizen.Wait(100)
 

@@ -105,6 +105,7 @@ AddEventHandler('RRGolf:buyMembership', function()
                 description = 'You\'re not carrying enough money' 
             })
         end
+    end
 end)
 
 RegisterServerEvent('RRP-Golf:Solos')
