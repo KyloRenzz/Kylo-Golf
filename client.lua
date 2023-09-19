@@ -157,18 +157,18 @@ Citizen.CreateThread(function()
 
 			-- If player going more than 500 from mark and game runing we stop it
 			if distanceFromMarker > 500 and isGameRunning then
-				endGame()
-        alertCops() 
-        lib.notify({
-          title = 'Los Santos Golf Club',
-          description = 'We are Calling the Police',
-          type = 'inform'
-        })
-			end
-			
-			if isGameRunning == true then
-      elseif isGameRunning == false then
-        lib.hideTextUI(GolfText)
+        local vehicle = GetVehiclePedIsIn(PlayerPedId(),false)
+        local veh = GetEntityModel(vehicle)
+        endGame()
+
+        if veh == GetHashKey("caddy") then
+          alertCops() 
+          lib.notify({
+            title = 'Los Santos Golf Club',
+            description = 'We are Calling the Police',
+            type = 'inform'
+          })
+        end
 			end
 		end -- (isGolfOpen)
 	end
@@ -209,6 +209,7 @@ function newGame()
             spawned_car = nil
           end 
 
+          lib.hideTextUI(GolfText)
 				else
 					golfHole = golfHole + 1
 					blipsStartEndCurrentHole()

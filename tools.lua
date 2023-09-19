@@ -33,6 +33,9 @@ function endGame()
 	_removeStartEndCurrentHole()
 	_removeBallBlip()
 	N_0xa356990e161c9e65(false)
+	lib.hideTextUI(GolfText)
+	Wait(5)
+	lib.hideTextUI()
 end
 
 function displayHelpText(str)
