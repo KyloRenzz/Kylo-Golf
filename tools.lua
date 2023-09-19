@@ -1099,38 +1099,34 @@ if Config.Target == "ox_target" then
 
 elseif Config.Target == "qb-target" then
 	-- QB-Target --
-	exports[Config.Target]:AddBoxZone("Golfing", Config.GolfStartLoc, 0.45, 0.35,{
-		name="Golfing",
-		heading=11.0,
-		debugPoly=false,
-		minZ=54.0834,
-		maxZ=54.87834,
+	exports[Config.Target]:AddBoxZone("Golfing", Config.GolfStartLoc, 2, 1,{
+		name = "Golfing",
+		heading = 0.0,
+		debugPoly = false,
 		}, {
 			options = {
 				{
 					event = "RRGolf:verify",
 					icon = "fa-solid fa-flag",
 					label = "Golf",
-					distance = 2
 				},
-			}
+			},
+			distance = 2.5
 	})
 
-	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 0.45, 0.35, {
-		name="Buying",
-		heading=11.0,
-		debugPoly=false,
-		minZ=54.0834,
-		maxZ=54.87834,
+	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 2, 1, {
+		name = "Buying",
+		heading = 0.0,
+		debugPoly = false,
 		}, {
 		options = {
 			{
 				event = "RRGolf:Membership",
 				icon = "fa-solid fa-flag",
-				label = "Los Santos Golf Club",
-				distance = 2		
+				label = "Los Santos Golf Club",	
 			},
 		},
+			distance = 2.5
 	})
 
 elseif Config.Target == "qtarget" then
