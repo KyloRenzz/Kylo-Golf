@@ -14,7 +14,6 @@ function addblipGC()
 end
 
 function endGame()
-
 	isGameRunning = false
 	golfHole = 1
 	DeleteObject(mygolfball)
@@ -428,7 +427,7 @@ function endShot()
 
 				end
 				parscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(parscaleform, 255, 255, 255, 255, 0)
 				end
@@ -452,7 +451,7 @@ function endShot()
 					return birscaleform
 				end
 				birscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(birscaleform, 255, 255, 255, 255, 0)
 				end
@@ -477,7 +476,7 @@ function endShot()
 
 				end
 				eagscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(eagscaleform, 255, 255, 255, 255, 0)
 				end
@@ -502,7 +501,7 @@ function endShot()
 
 				end
 				deagscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(deagscaleform, 255, 255, 255, 255, 0)
 				end
@@ -526,7 +525,7 @@ function endShot()
 					return bogscaleform
 				end
 				bogscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(bogscaleform, 255, 255, 255, 255, 0)
 				end
@@ -550,7 +549,7 @@ function endShot()
 					return dbogscaleform
 				end
 				dbogscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(dbogscaleform, 255, 255, 255, 255, 0)
 				end
@@ -574,7 +573,7 @@ function endShot()
 					return tbogscaleform
 				end
 				tbogscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(tbogscaleform, 255, 255, 255, 255, 0)
 				end
@@ -598,7 +597,7 @@ function endShot()
 					return hioscaleform
 				end
 				hioscaleform = Initialize("mp_big_message_freemode")
-				while isGolfOpen do
+				while isGameRunning do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(hioscaleform, 255, 255, 255, 255, 0)
 				end
@@ -868,7 +867,7 @@ end
 RegisterNetEvent('camFollowBall')
 AddEventHandler('camFollowBall', function()
 	local timer = 20000
-	while timer > 0 and isGolfOpen do
+	while timer > 0 and isGameRunning do
 		Citizen.Wait(5)
 		x,y,z = table.unpack(GetEntityCoords(mygolfball))
 		SetCamCoord(ballcam, x,y-10,z+9)
@@ -975,9 +974,6 @@ lib.registerContext({
 	id = 'solo_group',
 	title = 'Solo or Group',
 	menu = 'LSGC Golf',
-	onBack = function()
-	  print('Went back!')
-	end,
 	options = {
 		{
 			title = 'Solo Play',
@@ -1008,9 +1004,6 @@ lib.registerContext({
 	id = 'group',
 	title = 'Group Menu',
 	menu = 'solo_group',
-	onBack = function()
-	  print('Went back!')
-	end,
 	options = {
 		{
 			title = 'Start Group',
@@ -1057,7 +1050,6 @@ lib.registerContext({
 			description = 'Start the Round of Golf',
 			icon = 'users',
 			onSelect = function()
-			  print("Coming Soon")
 			  lib.notify({
 				title = 'Los Santos Golf Club',
 				description = 'Coming Soon',
