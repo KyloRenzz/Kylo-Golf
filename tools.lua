@@ -428,7 +428,7 @@ function endShot()
 
 				end
 				parscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(parscaleform, 255, 255, 255, 255, 0)
 				end
@@ -452,7 +452,7 @@ function endShot()
 					return birscaleform
 				end
 				birscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(birscaleform, 255, 255, 255, 255, 0)
 				end
@@ -477,7 +477,7 @@ function endShot()
 
 				end
 				eagscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(eagscaleform, 255, 255, 255, 255, 0)
 				end
@@ -502,7 +502,7 @@ function endShot()
 
 				end
 				deagscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(deagscaleform, 255, 255, 255, 255, 0)
 				end
@@ -526,7 +526,7 @@ function endShot()
 					return bogscaleform
 				end
 				bogscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(bogscaleform, 255, 255, 255, 255, 0)
 				end
@@ -550,7 +550,7 @@ function endShot()
 					return dbogscaleform
 				end
 				dbogscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(dbogscaleform, 255, 255, 255, 255, 0)
 				end
@@ -574,7 +574,7 @@ function endShot()
 					return tbogscaleform
 				end
 				tbogscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(tbogscaleform, 255, 255, 255, 255, 0)
 				end
@@ -598,7 +598,7 @@ function endShot()
 					return hioscaleform
 				end
 				hioscaleform = Initialize("mp_big_message_freemode")
-				while true do
+				while isGolfOpen do
 					Citizen.Wait(0)
 					DrawScaleformMovieFullscreen(hioscaleform, 255, 255, 255, 255, 0)
 				end
@@ -868,7 +868,7 @@ end
 RegisterNetEvent('camFollowBall')
 AddEventHandler('camFollowBall', function()
 	local timer = 20000
-	while timer > 0 do
+	while timer > 0 and isGolfOpen do
 		Citizen.Wait(5)
 		x,y,z = table.unpack(GetEntityCoords(mygolfball))
 		SetCamCoord(ballcam, x,y-10,z+9)
