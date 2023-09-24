@@ -991,74 +991,74 @@ lib.registerContext({
 				end
 			end,
 		},
-		{
-			title = 'Group Play',
-			description = 'Play with up to 4 People',
-			icon = 'users',
-			menu = 'group',
-		}
+		-- {
+		-- 	title = 'Group Play',
+		-- 	description = 'Play with up to 4 People',
+		-- 	icon = 'users',
+		-- 	menu = 'group',
+		-- }
 	}
 })
 
-lib.registerContext({
-	id = 'group',
-	title = 'Group Menu',
-	menu = 'solo_group',
-	options = {
-		{
-			title = 'Start Group',
-			description = 'Join in the group',
-			icon = '',
-			onSelect = function()
-				if isGameRunning == true then
-					lib.notify({
-						title = 'Los Santos Golf Club',
-						description = 'You\'re already in a match',
-						type = 'error'
-					})
-				elseif isGameRunning == false then
-					lib.notify({
-						title = 'Los Santos Golf Club',
-						description = 'Coming Soon',
-						type = 'error'
-					})
-				end
-			end,
-		},
-		{
-			title = 'Join Group',
-			description = 'Join in the group',
-			icon = '',
-			onSelect = function()
-				if isGameRunning == true then
-					lib.notify({
-						title = 'Los Santos Golf Club',
-						description = 'You\'re already in a match',
-						type = 'error'
-					})
-				elseif isGameRunning == false then
-					lib.notify({
-						title = 'Los Santos Golf Club',
-						description = 'Coming Soon',
-						type = 'error'
-					})
-				end
-			end,
-		},
-		{
-			title = 'Start Match',
-			description = 'Start the Round of Golf',
-			icon = 'users',
-			onSelect = function()
-			  lib.notify({
-				title = 'Los Santos Golf Club',
-				description = 'Coming Soon',
-				type = 'error'
-			})
-			end,
-		}
-	}
-})
+-- lib.registerContext({
+-- 	id = 'group',
+-- 	title = 'Group Menu',
+-- 	menu = 'solo_group',
+-- 	options = {
+-- 		{
+-- 			title = 'Start Group',
+-- 			description = 'Join in the group',
+-- 			icon = '',
+-- 			onSelect = function()
+-- 				if isGameRunning == true then
+-- 					lib.notify({
+-- 						title = 'Los Santos Golf Club',
+-- 						description = 'You\'re already in a match',
+-- 						type = 'error'
+-- 					})
+-- 				elseif isGameRunning == false then
+-- 					lib.notify({
+-- 						title = 'Los Santos Golf Club',
+-- 						description = 'Coming Soon',
+-- 						type = 'error'
+-- 					})
+-- 				end
+-- 			end,
+-- 		},
+-- 		{
+-- 			title = 'Join Group',
+-- 			description = 'Join in the group',
+-- 			icon = '',
+-- 			onSelect = function()
+-- 				if isGameRunning == true then
+-- 					lib.notify({
+-- 						title = 'Los Santos Golf Club',
+-- 						description = 'You\'re already in a match',
+-- 						type = 'error'
+-- 					})
+-- 				elseif isGameRunning == false then
+-- 					lib.notify({
+-- 						title = 'Los Santos Golf Club',
+-- 						description = 'Coming Soon',
+-- 						type = 'error'
+-- 					})
+-- 				end
+-- 			end,
+-- 		},
+-- 		{
+-- 			title = 'Start Match',
+-- 			description = 'Start the Round of Golf',
+-- 			icon = 'users',
+-- 			onSelect = function()
+-- 			  lib.notify({
+-- 				title = 'Los Santos Golf Club',
+-- 				description = 'Coming Soon',
+-- 				type = 'error'
+-- 			})
+-- 			end,
+-- 		}
+-- 	}
+-- })
 
 --- OX Target ---
 if Config.Target == "ox_target" then
@@ -1094,38 +1094,34 @@ if Config.Target == "ox_target" then
 
 elseif Config.Target == "qb-target" then
 	-- QB-Target --
-	exports[Config.Target]:AddBoxZone("Golfing", Config.GolfStartLoc, 0.45, 0.35,{
-		name="Golfing",
-		heading=11.0,
-		debugPoly=false,
-		minZ=54.0834,
-		maxZ=54.87834,
-		}, {
-			options = {
-				{
-					event = "RRGolf:verify",
-					icon = "fa-solid fa-flag",
-					label = "Golf",
-					distance = 2
-				},
-			}
+	exports[Config.Target]:AddBoxZone("Golfing", Config.GolfStartLoc, 2, 1,{
+		name = "Golfing",
+		heading = 0.0,
+		debugPoly = false,
+	}, {
+		options = {
+			{
+				event = "RRGolf:verify",
+				icon = "fa-solid fa-flag",
+				label = "Golf",
+			},
+		}
+	distance = 2.5
 	})
 
-	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 0.45, 0.35, {
-		name="Buying",
-		heading=11.0,
-		debugPoly=false,
-		minZ=54.0834,
-		maxZ=54.87834,
+	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 2, 1, {
+		name = "Buying",
+		heading = 0.0,
+		debugPoly = false,
 		}, {
 		options = {
 			{
 				event = "RRGolf:Membership",
 				icon = "fa-solid fa-flag",
-				label = "Los Santos Golf Club",
-				distance = 2		
+				label = "Los Santos Golf Club",	
 			},
 		},
+			distance = 2.5
 	})
 
 elseif Config.Target == "qtarget" then
