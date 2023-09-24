@@ -972,7 +972,7 @@ lib.registerContext({
 
 lib.registerContext({
 	id = 'solo_group',
-	title = 'Solo or Group',
+	title = 'Solo',
 	menu = 'LSGC Golf',
 	options = {
 		{
