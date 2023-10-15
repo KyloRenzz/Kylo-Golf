@@ -1104,9 +1104,9 @@ elseif Config.Target == "qb-target" then
 				event = "RRGolf:verify",
 				icon = "fa-solid fa-flag",
 				label = "Golf",
+				distance = 2.5
 			},
 		}
-	distance = 2.5
 	})
 
 	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 2, 1, {
