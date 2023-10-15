@@ -1118,10 +1118,10 @@ elseif Config.Target == "qb-target" then
 			{
 				event = "RRGolf:Membership",
 				icon = "fa-solid fa-flag",
-				label = "Los Santos Golf Club",	
+				label = "Los Santos Golf Club",
+				distance = 2.5	
 			},
 		},
-			distance = 2.5
 	})
 
 elseif Config.Target == "qtarget" then
