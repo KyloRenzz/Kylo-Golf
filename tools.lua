@@ -1122,7 +1122,7 @@ elseif Config.Target == "qb-target" then
 				distance = 2.5
 
 			},
-		},0
+		},
 	})
 
 elseif Config.Target == "qtarget" then
