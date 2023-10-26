@@ -226,51 +226,35 @@ function newGame()
 				end
 			end
       -- Adding Golfing Map
-      if golfHole == 1 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(1)
-          SetRadarZoom(900);
-          LockMinimapPosition(-1218.0, 90.0);
-          LockMinimapAngle(280);
+      if Config.Golfmap = true then  
+        if golfHole == 1 then
+          if isPlaying == true then
+            SetMinimapGolfCourse(1)
+            SetRadarZoom(900);
+            LockMinimapPosition(-1218.0, 90.0);
+            LockMinimapAngle(280);
 
-            if distance < 15 then
-	            terrain()
-            else
+              if distance < 15 then
+                terrain()
+              else
+                TerraingridActivate(false)
+              end
+          else
+            nogolfmap()
+            if distance < 15 and isPlaying == false then
               TerraingridActivate(false)
             end
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
-          end
-        end 
-      elseif golfHole == 2 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(2)
-          SetRadarZoom(850);
-          LockMinimapPosition(-1220.0, 240.0);
-          LockMinimapAngle(90);
-          ToggleStealthRadar(false);
-          SetRadarBigmapEnabled(false, false);
-          if distance < 15 then
-            terrain()
-          else
-            TerraingridActivate(false)
-          end
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
-          end
-        end 
-        elseif golfHole == 3 then
+          end 
+        elseif golfHole == 2 then
           if isPlaying == true then
-            SetMinimapGolfCourse(3)
-            SetRadarZoom(400);
-            LockMinimapPosition(-1290.0, 60.0);
-            LockMinimapAngle(250);
+            SetMinimapGolfCourse(2)
+            SetRadarZoom(850);
+            LockMinimapPosition(-1220.0, 240.0);
+            LockMinimapAngle(90);
+            ToggleStealthRadar(false);
+            SetRadarBigmapEnabled(false, false);
             if distance < 15 then
-	            terrain()
+              terrain()
             else
               TerraingridActivate(false)
             end
@@ -280,106 +264,124 @@ function newGame()
               TerraingridActivate(false)
             end
           end 
-      elseif golfHole == 4 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(4)
-          SetRadarZoom(650);
-          LockMinimapPosition(-1180.0, -20.0);
-          LockMinimapAngle(250);
-          if distance < 15 then
-            terrain()
+          elseif golfHole == 3 then
+            if isPlaying == true then
+              SetMinimapGolfCourse(3)
+              SetRadarZoom(400);
+              LockMinimapPosition(-1290.0, 60.0);
+              LockMinimapAngle(250);
+              if distance < 15 then
+                terrain()
+              else
+                TerraingridActivate(false)
+              end
+            else
+              nogolfmap()
+              if distance < 15 and isPlaying == false then
+                TerraingridActivate(false)
+              end
+            end 
+        elseif golfHole == 4 then
+          if isPlaying == true then
+            SetMinimapGolfCourse(4)
+            SetRadarZoom(650);
+            LockMinimapPosition(-1180.0, -20.0);
+            LockMinimapAngle(250);
+            if distance < 15 then
+              terrain()
+            else
+              TerraingridActivate(false)
+            end
           else
-            TerraingridActivate(false)
-          end
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
-          end
-        end 
-      elseif golfHole == 5 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(5)
-          SetRadarZoom(785);
-          LockMinimapPosition(-1085.0, -70.0);
-          LockMinimapAngle(220);
-          if distance < 15 then
-            terrain()
+            nogolfmap()
+            if distance < 15 and isPlaying == false then
+              TerraingridActivate(false)
+            end
+          end 
+        elseif golfHole == 5 then
+          if isPlaying == true then
+            SetMinimapGolfCourse(5)
+            SetRadarZoom(785);
+            LockMinimapPosition(-1085.0, -70.0);
+            LockMinimapAngle(220);
+            if distance < 15 then
+              terrain()
+            else
+              TerraingridActivate(false)
+            end
           else
-            TerraingridActivate(false)
-          end
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
-          end
-        end 
-      elseif golfHole == 6 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(6)
-          SetRadarZoom(500);
-          LockMinimapPosition(-1050.0, -50.0);
-          LockMinimapAngle(90);
-          if distance < 15 then
-            terrain()
+            nogolfmap()
+            if distance < 15 and isPlaying == false then
+              TerraingridActivate(false)
+            end
+          end 
+        elseif golfHole == 6 then
+          if isPlaying == true then
+            SetMinimapGolfCourse(6)
+            SetRadarZoom(500);
+            LockMinimapPosition(-1050.0, -50.0);
+            LockMinimapAngle(90);
+            if distance < 15 then
+              terrain()
+            else
+              TerraingridActivate(false)
+            end
           else
-            TerraingridActivate(false)
-          end
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
-          end
-        end 
-      elseif golfHole == 7 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(7)
-          SetRadarZoom(810);
-          LockMinimapPosition(-1160.0, 35.0);
-          LockMinimapAngle(55);
-          if distance < 15 then
-            terrain()
+            nogolfmap()
+            if distance < 15 and isPlaying == false then
+              TerraingridActivate(false)
+            end
+          end 
+        elseif golfHole == 7 then
+          if isPlaying == true then
+            SetMinimapGolfCourse(7)
+            SetRadarZoom(810);
+            LockMinimapPosition(-1160.0, 35.0);
+            LockMinimapAngle(55);
+            if distance < 15 then
+              terrain()
+            else
+              TerraingridActivate(false)
+            end
           else
-            TerraingridActivate(false)
-          end
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
-          end
-        end 
-      elseif golfHole == 8 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(8)
-          SetRadarZoom(900);
-          LockMinimapPosition(-1200.0, -120.0);
-          LockMinimapAngle(245);
-          if distance < 15 then
-            terrain()
+            nogolfmap()
+            if distance < 15 and isPlaying == false then
+              TerraingridActivate(false)
+            end
+          end 
+        elseif golfHole == 8 then
+          if isPlaying == true then
+            SetMinimapGolfCourse(8)
+            SetRadarZoom(900);
+            LockMinimapPosition(-1200.0, -120.0);
+            LockMinimapAngle(245);
+            if distance < 15 then
+              terrain()
+            else
+              TerraingridActivate(false)
+            end
           else
-            TerraingridActivate(false)
-          end
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
-          end
-        end 
-      elseif golfHole == 9 then
-        if isPlaying == true then
-          SetMinimapGolfCourse(9)
-          SetRadarZoom(725);
-          LockMinimapPosition(-1175.0, 120.0);
-          LockMinimapAngle(65);
-          if distance < 15 then
-            terrain()
+            nogolfmap()
+            if distance < 15 and isPlaying == false then
+              TerraingridActivate(false)
+            end
+          end 
+        elseif golfHole == 9 then
+          if isPlaying == true then
+            SetMinimapGolfCourse(9)
+            SetRadarZoom(725);
+            LockMinimapPosition(-1175.0, 120.0);
+            LockMinimapAngle(65);
+            if distance < 15 then
+              terrain()
+            else
+              TerraingridActivate(false)
+            end       
           else
-            TerraingridActivate(false)
-          end       
-        else
-          nogolfmap()
-          if distance < 15 and isPlaying == false then
-            TerraingridActivate(false)
+            nogolfmap()
+            if distance < 15 and isPlaying == false then
+              TerraingridActivate(false)
+            end
           end
         end
       end

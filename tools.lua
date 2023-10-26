@@ -1104,9 +1104,9 @@ elseif Config.Target == "qb-target" then
 				event = "RRGolf:verify",
 				icon = "fa-solid fa-flag",
 				label = "Golf",
+				distance = 2.5
 			},
 		}
-	distance = 2.5
 	})
 
 	exports[Config.Target]:AddBoxZone("Buying", Config.PayLoc, 2, 1, {
@@ -1118,10 +1118,11 @@ elseif Config.Target == "qb-target" then
 			{
 				event = "RRGolf:Membership",
 				icon = "fa-solid fa-flag",
-				label = "Los Santos Golf Club",	
+				label = "Los Santos Golf Club",
+				distance = 2.5
+
 			},
-		},
-			distance = 2.5
+		},0
 	})
 
 elseif Config.Target == "qtarget" then
