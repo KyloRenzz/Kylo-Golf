@@ -194,7 +194,6 @@ function idleShot()
 				 PushScaleformMovieMethodParameterString(dst)
 				 EndScaleformMovieMethod()
 
-
             	else
               	 BeginScaleformMovieMethod(Scaleform, 'SWING_METER_TRANSITION_OUT')
               	 EndScaleformMovieMethod()

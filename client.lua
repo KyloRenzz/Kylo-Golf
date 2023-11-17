@@ -226,7 +226,7 @@ function newGame()
 				end
 			end
       -- Adding Golfing Map
-      if Config.Golfmap = true then  
+      if Config.Golfmap == true then  
         if golfHole == 1 then
           if isPlaying == true then
             SetMinimapGolfCourse(1)
